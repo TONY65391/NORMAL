@@ -1,3 +1,4 @@
+const header = document.querySelector('header');
 const menu = document.querySelector('header nav');
 menu.onclick = function(){
     if (menu.classList.contains('active')){
@@ -6,16 +7,44 @@ menu.onclick = function(){
     else{
         menu.classList.add('active')
     }
+
+    header.classList.toggle('open');
+
+
 }
 
 var scrollPosition = 0;
 
+const secondSection = document.querySelectorAll('main section')[1];
+const about = secondSection.querySelector('.about');
+const counters = about.querySelectorAll('aside .counter');
+const speed = 100;
+
+function update(){
+    counters.forEach(counter => {
+        const updateCounter = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+
+            const inc = target / speed;
+
+            if(count < target){
+                counter.innerText = inc + count;
+                setTimeout(updateCounter, 200)
+            }else{
+                count.innerText = target;
+            }
+        }
+        updateCounter();
+    });
+};
+
+
 window.addEventListener('scroll', () => {
     scrollPosition = window.scrollY;
-    const secondSection = document.querySelectorAll('main section')[1];
+    
     const secondSectionItems = secondSection.querySelector('.items');
     const secondSectionItemsRect = secondSectionItems.getBoundingClientRect();
-    const about = secondSection.querySelector('.about');
     const aboutRect = about.getBoundingClientRect();
 
     if (scrollPosition <= 20){
@@ -31,6 +60,18 @@ window.addEventListener('scroll', () => {
     }
     if (aboutRect.top <= 300){
         about.classList.add('active');
+        update();
+    }
+
+    if (window.innerWidth <= 700){
+        document.querySelector('header').style.top = '0px';
+        console.log("MOBILE")
     }
 });
+
+window.addEventListener('load', () => {
+    if (window.innerWidth <= 700){
+        document.querySelector('header').style.top = '0px';
+    }
+})
 
