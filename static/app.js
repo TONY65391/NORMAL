@@ -7,10 +7,13 @@ menu.onclick = function(){
     else{
         menu.classList.add('active')
     }
-
     header.classList.toggle('open');
+}
 
-
+const scrollTop = document.querySelector('.top button');
+scrollTop.onclick = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
 
 var scrollPosition = 0;
@@ -47,9 +50,17 @@ window.addEventListener('scroll', () => {
     const secondSectionItemsRect = secondSectionItems.getBoundingClientRect();
     const aboutRect = about.getBoundingClientRect();
 
+    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0){
+        scrollTop.style.display = '';
+    }
+    else{
+        scrollTop.style.display = "none";
+        console.log('None');
+    }
     if (scrollPosition <= 20){
         document.querySelector('header').classList.remove('grey')
         document.querySelector('header').style.top = '20px';
+        scrollTop.style.display = "block";
     }
     if (scrollPosition--){
         document.querySelector('header').classList.add('grey')

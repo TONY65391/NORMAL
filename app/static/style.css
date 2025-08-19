@@ -9,6 +9,20 @@
 html{scroll-behavior: smooth;}
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 
+.top{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    z-index: 10;
+}
+.top button{
+    font-size: 30px;
+    border: none;
+    background: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
 header{
     display: flex;
     align-items: center;
@@ -40,6 +54,13 @@ header ul{
     align-items: center;
     list-style: none;
     z-index: 5;
+
+    @media (width >= 0em){
+        display: none;
+    }
+    @media (width >= 60em){
+        display: flex;
+    }
 }
 header ul li a{
     color: white;
@@ -166,10 +187,6 @@ main{
     margin: auto;
 }
 
-main section{
-    width: 90%;
-    margin: auto;
-}
 /* MAIN FIRST SECTION */
 main section:nth-child(1){
     position: relative;
@@ -220,8 +237,8 @@ main section:nth-child(1) .content div a{
     text-transform: uppercase;
     margin-top: 20px;
     font-weight: 700;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 15px 20px;
+    border-radius: 0px;
 }
 main section:nth-child(1) .content img{
     margin-right: 15px;
@@ -245,7 +262,7 @@ main section:first-child svg{
     }
 }
 main section:first-child .content div:first-child{
-    transform: translateY(30px) scale(0);
+    transform: translateX(-100%) scale(1);
     filter: blur(10px);
     animation: slideUp 2s ease forwards;
     animation-delay: 1s;
@@ -346,8 +363,8 @@ main section:nth-child(2) .content .about div:first-child{
     display: grid;
     grid-template-columns: repeat(2, 46%);
     gap: 20px;
-    transform: translateY(30px) scale(0);
-    filter: blur(10px);
+    transform: translateY(70px);
+    opacity: 0;
 }
 main section:nth-child(2) .content .about div:first-child img{
     width: 100%;
@@ -370,9 +387,9 @@ main section:nth-child(2) .content .about.active div{
     animation: reset 0.8s ease forwards;
 }
 main section:nth-child(2) .content .about div:last-child{
-    transform: translateY(30px) scale(0);
-    filter: blur(10px);
+    transform: translateY(70px);
     animation-delay: 0.5s;
+    opacity: 0;
 }
 main section:nth-child(2) .content .about div:last-child h3{
     color: orange;
@@ -438,8 +455,124 @@ main section:nth-child(2) .content .about div:last-child aside div:last-child .t
     margin-left: 20px;
 }
 
+@keyframes offset{
+    to{
+        transform: translateY(100px);
+        opacity: 0  ;
+    }
+}
 
 /* MAIN THIRD SECTION */
+main section:nth-child(3) {
+    background: white;
+    margin-top: -10px;
+}
+main section:nth-child(3) p{
+    color: grey;
+}
+main section:nth-child(3) b{
+    color: black;
+}
+main section:nth-child(3) .content .menu{
+    padding: 50px 10px 0 10px;
+}
+main section:nth-child(3) .content .menu h4{
+    color: orange;
+    width: fit-content;
+    margin: auto;
+    font-style: italic;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+main section:nth-child(3) .content .menu h2{
+    width: fit-content;
+    margin: auto;
+    font-size: 2.5em;
+    font-variant: small-caps;
+    background: linear-gradient(to right, orange, black, orange);
+    background-clip: text;
+    color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+main section:nth-child(3) .content .menu .options{
+    margin: auto;
+    margin-top: 30px;
+    display: grid;
+    gap: 20px;
+
+    @media (width >= 0em){
+        width: 70%;
+        grid-template-columns: 1fr;
+    }
+    @media (width >= 40em){
+        width: fit-content;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+main section:nth-child(3) .content .menu .options .option{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+main section:nth-child(3) .content .dishes{
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    @media (width >= 0em){
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+    @media (width >= 50em){
+        grid-template-columns: repeat(2, 1fr);
+        width: 90%;
+    }
+}
+main section:nth-child(3) .content .dishes .dish{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: fit-content;
+    margin: auto;
+}
+main section:nth-child(3) .content .dishes .dish img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+main section:nth-child(3) .content .dishes .dish h3{
+    color: black;
+    font-variant: small-caps;
+    font-weight: 600;
+}
+main section:nth-child(3) .content .dishes .dish p.desc{
+    padding: 10px 0;
+    font-style: italic;
+}
+main section:nth-child(3) .content .dishes .dish .price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+    padding: 10px 0;
+}
+main section:nth-child(3) .content .dishes .dish .price h3{
+    font-size: 1.5em;
+}
+main section:nth-child(3) .content .dishes .dish .price p{
+    color: orange;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+/* RESET ELEMENTS IN THE THIRD SECTION */
 
 
 /* PHONE SCREEN */
@@ -451,6 +584,9 @@ main section:nth-child(2) .content .about div:last-child aside div:last-child .t
     }
     header{
         background: #1d1b1b;
+    }
+    header #sub{
+        font-size: 22px;
     }
 
     /* MAIN FIRST SECTION */
@@ -507,14 +643,25 @@ main section:nth-child(2) .content .about div:last-child aside div:last-child .t
         margin-top: 30px;
     }
     main section:nth-child(2) .content .about div:last-child aside{
-        grid-template-columns: repeat(1, 100%);
-        
+        grid-template-columns: repeat(1, 100%); 
     }
     main section:nth-child(2) .content .about div:last-child aside .try{
         margin-top: -5px;
     }
     main section:nth-child(2) .content .about div:last-child aside h3{
         font-size: 35px;
+    }
+
+    /* THIRD SECTION */
+    
+    main section:nth-child(3) .content .menu h2{
+        width: 70%;
+        text-align: center;
+    }
+    main section:nth-child(3) .content .menu .options{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        align-items: center;
     }
 }
 
