@@ -16,12 +16,18 @@ html{scroll-behavior: smooth;}
     z-index: 10;
 }
 .top button{
-    font-size: 30px;
+    font-size: 20px;
     border: none;
-    background: white;
-    padding: 5px 10px;
+    background: orange;
+    border: 2px solid orange;
+    padding: 5px;
+    border-radius: 5px;
     cursor: pointer;
 }
+.top button:hover{
+    background: transparent;
+}
+
 
 header{
     display: flex;
@@ -464,7 +470,7 @@ main section:nth-child(2) .content .about div:last-child aside div:last-child .t
 
 /* MAIN THIRD SECTION */
 main section:nth-child(3) {
-    background: white;
+    background: linear-gradient(to bottom, white, white, white, white, black);
     margin-top: -10px;
 }
 main section:nth-child(3) p{
@@ -570,8 +576,380 @@ main section:nth-child(3) .content .dishes .dish .price p{
     color: orange;
     font-weight: 700;
     font-size: 1.5em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+main section:nth-child(3) .vid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 100px;
+    @media (width >= 0){
+        display: block;
+    }
+    @media (width >= 50em){
+        display: grid;
+    }
+}
+main section:nth-child(3) .vid img{
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+}
+main section:nth-child(3) .vid form{
+    background: rgb(12, 12, 51);
+    padding: 50px;
+    @media (width >= 0){
+        margin-top: -10px;
+    }
+    @media (width >= 30em){
+        padding: 30px;
+    }
+    @media (width >= 50em){
+        margin-top: 0px;
+        padding: 50px;
+    }
+}
+main section:nth-child(3) .vid form h4{
+    color: orange;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+main section:nth-child(3) .vid form h1{
+    text-transform: capitalize;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 10px 0;
+}
+main section:nth-child(3) .vid form .inputs{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    @media (width >= 0){
+        display: block;
+    }
+    @media (width >= 50em){
+        display: grid;
+    }
+}
+main section:nth-child(3) .vid form input{
+    width: 100%;
+    padding: 20px;
+    outline: none;
+    margin-top: 10px;
+}
+main section:nth-child(3) .vid form input#request{
+    margin-top: 20px;
+    padding: 30px;
+}
+main section:nth-child(3) .vid form a{
+    color: green;
+    margin-top: 20px;
+    display: block;
+    padding: 20px;
+    background: orange;
+    border: 2px solid orange;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+}
+main section:nth-child(3) .vid form a:hover{
+    border-radius: 5px;
+    background: transparent;
+    color: orange;
+}
+main section:nth-child(3) svg:last-child{
+    width: 100%;
+    background: black;
+    fill: white;
+
+    @media (width >= 0){
+        fill: rgb(12, 12, 51);
+    }
+    @media (width >= 40em){
+        fill: white;
+    }
+}
+
+
+/* MAIN FOURTH SECTION */
+main section:nth-child(4) {
+    margin-top: -10px;
+    z-index: 5;
+    margin-bottom: 30vh;
+}
+main section:nth-child(4) h3{
+    color: orange;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+main section:nth-child(4) h1{
+    text-align: center;
+    margin: 10px 0 70px 0;
+    color: transparent;
+    text-shadow: 1px 2px 1px white;
+}
+main section:nth-child(4) .chefs{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: auto;
+    gap: 20px;
+    height: 370px;
+    margin-bottom: 40vh;
+
+    @media (width >= 0){
+        grid-template-columns: 1fr;
+        height: fit-content;
+    }
+    @media (width >= 30em){
+        grid-template-columns: repeat(2, 1fr);
+        height: fit-content;
+    }
+    @media (width >= 60em){
+        grid-template-columns: repeat(4, 1fr);
+        height: 360px;
+
+    }
+
+}
+main section:nth-child(4) .chefs .chef{
+    padding: 20px;
+    background: white;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 310px;
+    overflow: hidden;
+    animation: resizeHeight 0.5s ease forwards;
+    margin-bottom: 50px;
+
+    @media (width >= 0){
+        animation: none;
+        height: fit-content;
+    }
+    @media (width >= 60em){
+        animation: resizeHeight 0.5s ease forwards;
+        height: 310px;
+    }
+}
+@keyframes resizeHeight{
+    from{height: 350px;}
+    to{height: 310px;}
+}
+
+main section:nth-child(4) .chefs .chef:hover{
+    animation: fullHeight 0.5s ease forwards;
+
+    @media (width >= 0){
+        animation: none;
+
+    }
+    @media (width >= 60em){
+        animation: fullHeight 0.4s ease forwards;
+    }
+
+}
+@keyframes fullHeight{
+    from{height: 310px;}
+    to{height: 350px; margin-bottom: calc(50px + 350px - 310px);}
+}
+main section:nth-child(4) .chefs .chef:hover img{
+    transform: scale(1.1);
+}
+main section:nth-child(4) .chefs .chef img{
+    width: 100%;
+    border-radius: 50%;
+}
+main section:nth-child(4) .chefs .chef h4{
+    text-align: center;
+    color: black;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+main section:nth-child(4) .chefs .chef p{
+    color: grey;
+    text-align: center;
+    font-style: italic;
+}
+main section:nth-child(4) .chefs .chef .socials{
+    display: flex;
+    gap: 10px;
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+}
+main section:nth-child(4) .chefs .chef .socials a svg{
+    fill: white;
+    background: orange;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+main section:nth-child(4) .testimonies{
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+
+    @media (width >= 0){
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    @media (width >= 30em){
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (width >= 60em){
+        display: flex;
+    }
+}
+main section:nth-child(4) .testimonies svg{
+    fill: orange;
+    filter: drop-shadow(2px 2px 1px black);
+}
+main section:nth-child(4) .testimony{
+    background: white;
+    padding: 20px 30px;
+    flex: 1;
+    border-radius: 5px;
+    border: 2px solid orange;
+}
+main section:nth-child(4) .testimony:hover .client h2{
+    color: orange;
+}
+main section:nth-child(4) .testimony p{
+    color: grey;
+}
+main section:nth-child(4) .testimony .client h2{
+    color: black;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+main section:nth-child(4) .testimony .client{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    margin-top: 30px;
+}
+main section:nth-child(4) .testimony img{
+    width: 50px;
+    border-radius: 50%;
+}
+
+
+/* FOOTER */
+footer{
+    background: rgb(12, 12, 51);
+    padding: 50px 30px;
+}
+
+footer .items{
+    border-bottom: 1px solid grey;
+    width: 90%;
+    margin: auto;
+    padding: 30px 0;
+    display: grid;
+    gap: 20px;
+
+    @media (width >= 0){
+        grid-template-columns: 1fr;
+    }
+    
+    @media (width >= 40em){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (width >= 60em){
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+footer .items .item{
+    @media (width >= 0){
+        margin-top: 20px;
+    }
+}
+footer .items .item svg{
+    width: 20px;
+    fill: white;
+}
+footer .items .item h4{
+    color: orange;
+    font-size: 1.3em;
+    font-style: italic;
+    font-variant: small-caps;
+    margin-bottom: 20px;
+}
+footer .items .item a{
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 1.1em;
+    font-weight: 600;
+    line-height: 40px;
+}
+footer .items .item a:hover{
+    letter-spacing: 3px;
+}
+footer .items .item .input{
+    height: calc(50px +  5px);
+    background: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    padding: 5px;
+    margin-top: 20px;
+}
+footer .items .item .input input{
+    height: 50px;
+    padding: 10px;
+    outline: none;
+    border: none;
+}
+footer .items .item .input button{
+    height: 40px;
+    width: 100%;
+    background: orange;
+    border: 2px solid orange;
+    color: white;
+    font-weight: 600;
+    padding: 0 20px;
+    cursor: pointer;
+}
+footer .items .item .input button:hover{
+    color: orange;
+    background: black;
+    border-radius: 5px;
+}
+footer .items .item .links .link{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+footer .items .item .links p{
+    font-size: 1.2em;
+    line-height: 40px;
+    font-weight: 600;
+}
+footer .items .item .links .socials{
+    display: flex;
+    width: fit-content;
+    margin-top: 10px;
+    gap: 10px;
+}
+footer .items .item .links .socials svg{
+    width: 35px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+footer .items .item .links .socials svg:hover{
+    background: orange;
+    border-color: orange;
+}
 /* RESET ELEMENTS IN THE THIRD SECTION */
 
 
@@ -662,6 +1040,12 @@ main section:nth-child(3) .content .dishes .dish .price p{
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
         align-items: center;
+    }
+    main section:nth-child(3) .vid form input{
+        margin-top: 20px;
+    }
+    main section:nth-child(3) svg:last-child{
+        fill: rgb(12, 12, 51);
     }
 }
 
